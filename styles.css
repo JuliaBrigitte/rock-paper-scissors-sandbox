@@ -1,6 +1,6 @@
 body {
-    --primary: #fe5e41;
-    --secondary: #d8f1a0;
+    --primary: #6441fe;
+    --secondary: rgba(83, 105, 248, 0.51);
     background-color: var(--secondary);
     font-family: sans-serif;
     text-align: center;

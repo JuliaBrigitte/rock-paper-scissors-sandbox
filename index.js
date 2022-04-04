@@ -21,26 +21,39 @@ const getRandomMove = () => {
   };
   
   // Removing elements (nodes) from the DOM
-  const resetGame = () => {
-    if (document.getElementById("outcome")) {
+  function resetGame()
+  {
+    console.log("reset game");
+    if (document.getElementById("outcomeText")) {
       const outcome = document.body.lastChild;
-      document.body.removeChild(outcome);
+      console.log("reset game");
+      document.body.removeChild(outcomeText);
     }
-  };
-  
-  const playGame = () => {
+  }
+
+  function playGame()
+  {
     resetGame();
     const playerOneMove = getRandomMove();
     const playerTwoMove = getRandomMove();
     const outcome = getOutcome(playerOneMove, playerTwoMove);
+    console.log("play game");
     updateDOM(playerOneMove, playerTwoMove, outcome);
-  };
-  
-  const updateDOM = (moveOne, moveTwo, outcome) => {
+  }
+
+  function updateDOM (moveOne, moveTwo, outcome)
+  {
     // TODO Implement this method to update the DOM
     // There are some images you can use in the images directory
-  };
-  
+    document.getElementById("player-one-move__img").src="images/" + moveOne + ".png";
+    document.getElementById("player-two-move__img").src="images/" + moveTwo + ".png";
+    console.log(outcome);
+    outcomeText=document.createElement("outcomeText");
+    outcomeText.innerHTML="<div  id='outcomeText'>Outcome: " + outcome +"</div>";
+    document.body.appendChild(outcomeText);
+  }
+
   const playButton = document.getElementById("play-btn");
-  playButton.addEventListener("click", playGame);
+
+
   
